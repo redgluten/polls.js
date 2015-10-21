@@ -1,0 +1,33 @@
+<div class="container">
+  <form action="/polls/" method="POST" enctype="multipart/form-data" role="form" class="col-md-7 col-md-offset-3">
+      <legend>Create a new poll</legend>
+
+      <ng-include src='_form-errors.html'></ng-include>
+
+      <div class="form-group {{#if errors.question }}has-error{{/if}}">
+          <label for="question">Question *</label>
+          <input type="text" name="question" class="form-control" placeholder="What is the meaning of life?" required="required">
+          <small class="text-danger">{{ errors.question.msg }}</small>
+      </div>
+
+      <div class="form-group {{#if errors.choice1 }}has-error{{/if}}">
+          <label for="choice1">Choice 1 *</label>
+          <input type="text" name="choice1" class="form-control" placeholder="Nope." required="required">
+          <small class="text-danger">{{ errors.choice1.msg }}</small>
+      </div>
+
+      <div class="form-group {{#if errors.choice2 }}has-error{{/if}}">
+          <label for="choice2">Choice 2 *</label>
+          <input type="text" name="choice2" class="form-control" placeholder="42" required="required">
+          <small class="text-danger">{{ errors.choice2.msg }}</small>
+      </div>
+
+      <div class="form-group {{#if errors.choice3 }}has-error{{/if}}">
+          <label for="choice3">Choice 3</label>
+          <input type="text" name="choice3" class="form-control" placeholder="Pasta al pesto">
+          <small class="text-danger">{{ errors.choice3.msg }}</small>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Save poll</button>
+  </form>
+</div>

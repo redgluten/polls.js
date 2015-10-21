@@ -1,7 +1,44 @@
 doctype html
-html
+html(lang='en', ng-app='polls')
   head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
     title= title
+
+    //- Bootstrap
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css')
+
+    //- Font Awesome
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css')
+
+    //- Google font Noto Serif
+    link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic,700italic')
+
     link(rel='stylesheet', href='/stylesheets/style.css')
+
+    //- Angular
+    script(type="application/javascript", src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js")
+    script(type="application/javascript", src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-route.min.js")
+    script(type="application/javascript", src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-resource.min.js")
+
+    //- Jquery
+    script(type="application/javascript", src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js")
+
+    //- Bootstrap
+    script(type="application/javascript", src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js")
+
+    //- ChartJS
+    script(type="application/javascript", src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js")
+
+    //- Custom JS
+    script(type="application/javascript", src="/javascripts/main.js")
+    script(type="application/javascript", src="/javascripts/controllers.js")
+    script(type="application/javascript", src="/javascripts/services.js")
+
   body
-    block content
+    include nav
+
+    div('ng-view')
+      block content
+
+    include footer

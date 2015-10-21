@@ -1,0 +1,38 @@
+<div class="container">
+
+  <h1><i class="fa fa-pie-chart"></i> Polls</h1>
+
+  <div class="row">
+
+    <div class="col-md-9"  ng-switch on="polls.length">
+      <p ng-switch-when="0">
+        There is no poll yet.<br>
+      </p>
+
+      <hr>
+
+      <a href="#/create" class="btn btn-lg btn-success">Créer une question</a>
+
+      <table class="table table-striped" ng-switch-default>
+        <thead>
+          <th>Question</th>
+          <th>Votes</th>
+        </thead>
+        <tbody ng-repeat="poll in polls | filter:query">
+          <td><a href="#/{{ poll._id }}">{{ poll.question }}</a></td>
+          <td><span class="badge">{{ poll.answers.length() }}</span></td>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col-md-3">
+      <div class="form-group">
+        <label for="query"><i class="fa fa-filter"></i> Filter</label>
+        <input type="text" class="form-control" ng-model="query" name="query">
+      </div>
+
+      <a href="#/create" class="btn btn-success">Créer une question</a>
+    </div>
+
+  </div>
+</div>

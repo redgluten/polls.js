@@ -1,0 +1,43 @@
+<div class="container">
+  <form method="POST" role="form" class="col-md-9 col-md-offset-3" ng-submit="vote()">
+    <legend>Question: {{ poll.question }}</legend>
+
+    <div ng-repeat="choice in poll.choices">
+      <div class="radio">
+        <label>
+          <input type="radio" name="" id="input" value="{{choice.id}}" ng-model="poll.userVote">
+          {{ choice.answer }}
+        </label>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Answer</button>
+  </form>
+</div>
+
+<canvas id="myPieChart" width="400" height="400"></canvas>
+
+<script type="text/javascript">
+  var data = [
+      {
+          value: 150,
+          color:"#F7464A",
+          highlight: "#FF5A5E",
+          label: "PHP"
+      },
+      {
+          value: 200,
+          color: "#46BFBD",
+          highlight: "#5AD3D1",
+          label: "Ruby"
+      },
+      {
+          value: 140,
+          color: "#FDB45C",
+          highlight: "#FFC870",
+          label: "Swift"
+      }
+  ];
+  var ctx = $("#myPieChart").get(0).getContext("2d");
+  var myPieChart = new Chart(ctx).Pie(data, options);
+</script>
